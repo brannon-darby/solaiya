@@ -1,5 +1,7 @@
 # Minimal Starter with the CLI
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brannon-darby/solaiya.svg)](https://greenkeeper.io/)
+
 ## Installation
 
 * `npm install` or `yarn`
