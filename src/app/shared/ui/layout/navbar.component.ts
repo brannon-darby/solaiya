@@ -1,12 +1,13 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Meta, Title } from '@angular/platform-browser'
+import { NavigationEnd, Router } from '@angular/router'
 
 @Component({
   selector: 'app-navbar',
   template: `
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light p-1">
     <div class="container">
-      <a class="navbar-brand" href="#"><h3 class="text-primary m-0"><i class="fa fa-lg fa-sun-o text-warning"></i> Solaiya</h3></a>
+      <a class="animated zoomIn navbar-brand" href="#"><h3 class="text-primary m-0"><i class="fa fa-lg fa-sun-o text-warning"></i> Solaiya</h3></a>
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -32,7 +33,7 @@ import { Meta, Title } from '@angular/platform-browser'
   </nav>
   `,
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public expanded = false
   public nav = [
     { label: 'Home', link: 'home' },
@@ -43,4 +44,12 @@ export class NavbarComponent {
     { label: 'Why Solaiya?', link: 'why-solaiya' },
     { label: 'Contact Us', link: 'contact' },
   ]
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(
+      e => (e instanceof NavigationEnd ? (this.expanded = false) : ''),
+    )
+  }
 }
