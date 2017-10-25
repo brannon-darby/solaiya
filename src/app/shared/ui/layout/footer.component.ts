@@ -32,24 +32,26 @@ import { Meta, Title } from '@angular/platform-browser'
             <h5>CONTACT INFORMATION</h5>
             <hr class="my-2">
             <div class="text-left row">
-              <div class="col-3">
+              <div class="col-2">
                 <i class="fa fa-fw fa-map-marker"></i>
               </div>
-              <div class="col-9">
+              <div class="col-10">
                 664 A South Military Trail
                 <br>
                 Deerfield Beach, FL 33442
               </div>
-              <div class="col-3">
+              <div class="col-2">
                 <i class="fa fa-fw fa-phone"></i>
               </div>
-              <div class="col-9">1-954-725-7544</div>
+              <div class="col-10">
+                <a href="tel:1-954-725-7544">1-954-725-7544</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer container">
+    <div class="footer container p-3">
       <div class="row align-items-center">
         <div class="col text-center">
           &copy; 2017 Solaiya | All Rights Reserved

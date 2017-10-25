@@ -7,7 +7,10 @@ import { NavigationEnd, Router } from '@angular/router'
   template: `
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light p-1">
     <div class="container">
-      <a class="animated zoomIn navbar-brand" href="#"><h3 class="text-primary m-0"><i class="fa fa-lg fa-sun-o text-warning"></i> Solaiya</h3></a>
+      <a class="animated zoomIn navbar-brand" href="#">
+      <img src="assets/solaiya.png"
+           class="img-fluid logo">
+      </a>
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -18,7 +21,7 @@ import { NavigationEnd, Router } from '@angular/router'
               (click)="expanded = !expanded">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse"
+      <div class="collapse navbar-collapse text-center"
            id="navbarNav"
            [class.show]="expanded">
         <div class="navbar-nav">
@@ -28,6 +31,13 @@ import { NavigationEnd, Router } from '@angular/router'
              routerLinkActive="active">{{ item.label }}
           </a>
         </div>
+        <span class="social-buttons ml-auto">
+          <a *ngFor="let item of socialButtons"
+             [class]="item.class"
+             [href]="item.link">
+             <i [class]="item.icon"></i>
+          </a>
+        </span>
       </div>
     </div>
   </nav>
@@ -43,6 +53,23 @@ export class NavbarComponent implements OnInit {
     { label: 'Clients', link: 'clients' },
     { label: 'Why Solaiya?', link: 'why-solaiya' },
     { label: 'Contact Us', link: 'contact' },
+  ]
+  public socialButtons = [
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-facebook-official',
+      class: 'btn btn-sm btn-info m-1',
+    },
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-twitter-square',
+      class: 'btn btn-sm btn-info m-1',
+    },
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-linkedin-square',
+      class: 'btn btn-sm btn-info m-1',
+    },
   ]
 
   constructor(private router: Router) {}
