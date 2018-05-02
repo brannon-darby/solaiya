@@ -4,10 +4,10 @@ import { Meta, Title } from '@angular/platform-browser'
 @Component({
   selector: 'app-footer',
   template: `
-    <div class="bg-warning container-fluid">
-      <div class="container py-2">
+    <div class="container-fluid bg-info py-2">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-8">
             <h5>SOLUTIONS</h5>
             <hr class="my-2">
             <h6>Consulting</h6>
@@ -28,7 +28,7 @@ import { Meta, Title } from '@angular/platform-browser'
               <li><a routerLink="solutions">Personnel Training and Certification</a></li>
             </ul>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <h5>CONTACT INFORMATION</h5>
             <hr class="my-2">
             <div class="text-left row">
@@ -51,26 +51,42 @@ import { Meta, Title } from '@angular/platform-browser'
         </div>
       </div>
     </div>
-    <div class="footer container p-3">
-      <div class="row align-items-center">
-        <div class="col text-center">
-          &copy; 2017 Solaiya | All Rights Reserved
+    <div class="app-footer">
+      <div class="row align-items-center w-100">
+        <div class="col-6 text-center">
+          &copy; 2017-{{ currentYear }} Solaiya | All Rights Reserved
+        </div>
+        <div class="col-6 text-center">
+          <span class="social-buttons ml-auto">
+            <a *ngFor="let item of socialButtons"
+               [class]="item.class"
+               [href]="item.link">
+               <i [class]="item.icon"></i>
+            </a>
+          </span>
         </div>
       </div>
     </div>
   `,
-  styles: [
-    `
-    h5 {
-      text-align: center;
-    }
-    h6 {
-      margin-bottom: 0;
-    }
-    ul {
-      margin-bottom: 0;
-    }
-  `,
-  ],
 })
-export class FooterComponent {}
+export class FooterComponent {
+  public socialButtons = [
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-facebook-official',
+      class: 'btn btn-sm btn-info m-1',
+    },
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-twitter-square',
+      class: 'btn btn-sm btn-info m-1',
+    },
+    {
+      link: '',
+      icon: 'fa fa-lg fa-fw fa-linkedin-square',
+      class: 'btn btn-sm btn-info m-1',
+    },
+  ]
+
+  public currentYear = new Date().getFullYear()
+}

@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router'
   template: `
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light p-1">
     <div class="container">
-      <a class="animated zoomIn navbar-brand" href="#">
+      <a class="navbar-brand" href="#">
       <img src="assets/solaiya.png"
            class="img-fluid logo">
       </a>
@@ -31,13 +31,6 @@ import { NavigationEnd, Router } from '@angular/router'
              routerLinkActive="active">{{ item.label }}
           </a>
         </div>
-        <span class="social-buttons ml-auto">
-          <a *ngFor="let item of socialButtons"
-             [class]="item.class"
-             [href]="item.link">
-             <i [class]="item.icon"></i>
-          </a>
-        </span>
       </div>
     </div>
   </nav>
@@ -54,29 +47,12 @@ export class NavbarComponent implements OnInit {
     { label: 'Why Solaiya?', link: 'why-solaiya' },
     { label: 'Contact Us', link: 'contact' },
   ]
-  public socialButtons = [
-    {
-      link: '',
-      icon: 'fa fa-lg fa-fw fa-facebook-official',
-      class: 'btn btn-sm btn-info m-1',
-    },
-    {
-      link: '',
-      icon: 'fa fa-lg fa-fw fa-twitter-square',
-      class: 'btn btn-sm btn-info m-1',
-    },
-    {
-      link: '',
-      icon: 'fa fa-lg fa-fw fa-linkedin-square',
-      class: 'btn btn-sm btn-info m-1',
-    },
-  ]
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe(
-      e => (e instanceof NavigationEnd ? (this.expanded = false) : ''),
+      (e) => (e instanceof NavigationEnd ? (this.expanded = false) : '')
     )
   }
 }

@@ -4,7 +4,7 @@ import { Meta, Title } from '@angular/platform-browser'
 @Component({
   selector: 'app-body',
   template: `
-    <div class="app-body container-fluid">
+    <div class="app-body">
       <div class="container">
         <ng-content></ng-content>
       </div>
